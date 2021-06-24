@@ -1,0 +1,13 @@
+cs50
+Flask
+flask-session
+tempfile
+werkzeug.exceptions
+werkzeug.security
+helpers
+requests
+flask_mail
+os
+calendar
+datetime
+apscheduler.schedulers.background

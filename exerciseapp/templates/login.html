@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+    <style>
+    .login
+    {
+        border-radius: 25px;
+        width: 50%;
+        height: 50%;
+        align-items: center;
+        position: fixed;
+    }
+    .centered
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    </style>
+    <div class="bg-dark login centered align-items-center">
+    <form action="/login" method="post">
+        <div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control " name="username" placeholder="Username" type="text" style="width:90%">
+            </div>
+            <div class="form-group">
+                <input class="form-control " name="password" placeholder="Password" type="password" style="width:90%">
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+
+    <h1> Settings </h1>
+    <h2> Upper Body </h2>
+    <form action="/settings" method="post">
+    <table class="table table-dark table-striped table-hover" style="text-align: left">
+         <thead>
+            <tr>
+                <th>Bodypart</th>
+                <th>Level</th>
+                <th>Exercise</th>
+                <th>Reps</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exercises in upperbody %}
+            <tr>
+                <td>{{ upperbody[loop.index - 1]['bodypart'] }}</td>
+                <td><input autocomplete="off" class="form-control" min="1" max="4" name="{{ upperbody[loop.index - 1]['bodypart'] }}level" value="{{ upperbody[loop.index - 1]['level'] }}" placeholder="Level" type="number"></td>
+                <td>{{ upperexercises[loop.index - 1]}}</td>
+                <td><input autocomplete="off" class="form-control" min="12" {% if upperbody[loop.index - 1]['bodypart'] == 'Core' %}max="240"{% else %}max='60'{% endif %} name="{{ upperbody[loop.index - 1]['bodypart'] }}reps" value="{{ upperbody[loop.index - 1]['reps']}}" placeholder="Level" type="number">{% if upperbody[loop.index - 1]['bodypart'] == 'Core' %} Seconds{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2> Lower Body </h2>
+    <table class="table table-dark table-striped table-hover" style="text-align: left">
+         <thead>
+            <tr>
+                <th>Bodypart</th>
+                <th>Level</th>
+                <th>Reps</th>
+            </tr>
+            <tfoot>
+                <tr>
+                    <td colspan="2"></td>
+                    <td><b></b></td>
+                </tr>
+            </tfoot>
+        </thead>
+        <tbody>
+      {% for exercises in lowerbody %}
+            <tr>
+                <td>{{ lowerbody[loop.index - 1]['bodypart'] }}</td>
+                <td><input autocomplete="off" class="form-control" min="1" max="4" name="{{ lowerbody[loop.index - 1]['bodypart'] }}level" value="{{ lowerbody[loop.index - 1]['level'] }}" placeholder="Level" type="number"></td>
+                <td>{{ lowerexercises[loop.index - 1]}}</td>
+                <td><input autocomplete="off" class="form-control" min="12" max="60" name="{{ lowerbody[loop.index - 1]['bodypart'] }}reps" value="{{ lowerbody[loop.index - 1]['reps']}}" placeholder="Level" type="number">{% if lowerbody[loop.index - 1]['bodypart'] == 'Spinal Erector' %} Seconds{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <input value='Change Settings' class="btn btn-primary" type='submit'>
+    </form>
+{% endblock %}

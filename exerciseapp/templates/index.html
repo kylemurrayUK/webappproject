@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block main %}
+
+    <h1> {{ day }}: {{musclegroup}} Day </h1>
+
+{% for exercise in exercisereps %}
+
+{% set reps = exercisereps[loop.index - 1][exercises[loop.index - 1]] %}
+<h2> {{ [exercises[loop.index - 1]][0] }} </h2>
+    <table class="table table-dark table-striped" style="text-align: left">
+         <thead>
+            <tr>
+                <th>Exercise</th>
+                <th>Set 1</th>
+                <th>Set 2</th>
+                <th>Set 3</th>
+                <th>Total Reps</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+
+            <tr>
+                <td>{{ bodypartmove[loop.index - 1] }}</td>
+                <td>{{sets[loop.index - 1][0]}}</td>
+                <td>{{sets[loop.index - 1][1]}}</td>
+                <td>{{sets[loop.index - 1][2]}}</td>
+                <td>{{reps}} {% if exercises[loop.index - 1] == 'Core' or exercises[loop.index - 1] == 'Spinal Erector' %}Seconds {% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endfor %}
+{% endblock %}
