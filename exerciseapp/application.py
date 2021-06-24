@@ -15,7 +15,7 @@ from flask_mail import Mail, Message
 # Configure application
 app = Flask(__name__)
 
-BODYPARTS = ["Shoulders", "Chest", "Back", "Core", "Hips", "Upper Legs", "Lower Legs", "Spinal Erector"]
+BODYPARTS = ["Chest", "Back", "Shoulders", "Core", "Upper Legs", "Hips", "Spinal Erector",  "Lower Legs"]
 SHOULDERS = ["Pike Push-up", "Elevated Pike Push-up", "Handstand Push-up", "Raise Handstand Push-up"]
 CHEST = ["Knee Push-up", "Regular Push-up", "Deficit Push-up", "Weighted Deficit Push-up"]
 BACK = ["Stool Assisted Chin-ups", "Regular Chin-ups", "Chin and Pull-up Combo", "Weight Chin and Pull-up Combo"]
