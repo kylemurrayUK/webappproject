@@ -1,4 +1,4 @@
-# YOUR PROJECT TITLE
+# CS50: Exercise app
 #### Video Demo:  https://www.youtube.com/watch?v=DNUTtze1Jjg
 #### Description:
 My project is a web application based on the finance application from week 9that tracks the users reps for each bodypart and their level and then assigns them
