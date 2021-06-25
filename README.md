@@ -32,18 +32,21 @@ Upon a GET request this displays 2 tables. One for upperbody and one for lowerbo
 associated with that level and then the amount of reps for that bodypart. It displays these in number fields that can be changed up to a certain limit. Upon a post
 request the program loops through the body parts and inserts the new numbers back into the database. It then refreshes the page to show the suer the new reps along
 with any exercise changes.
+## Python files
 #### application.py
 Most of the functions of this have been covered in the above pages but there are certain things that haven;t. The main one is the function that increases the reps
 daily. This uses an update function to add either 1, 5 or nothing depending on the exercise. This is then linked the scheduler which again uses a cron trigger
 to execute this once a day at 18:00. This file also contains the list of bodyparts and their associated exercises. I did this as I thought it would be quicker than
 having them stored into a database and having to query that database evertime.
+#### helpers.py
+Contains some functions from finance but has been massively stripped back. The only functions that remain is the apology function and the login_required tag
+function.
+## Database
 #### exercise.db
 This database has two tables with the following schema:
 CREATE TABLE users (id INTEGER, username TEXT NOT NULL, hash TEXT NOT NULL, email TEXT, PRIMARY KEY(id));
 CREATE TABLE exercises (id INTEGER, bodypart TEXT NOT NULL, level INTEGER, reps INTEGER, FOREIGN KEY(id) REFERENCES users(id));
 CREATE UNIQUE INDEX username ON users(username);
-#### helpers.db
-Contains some functions from finance but has been massively stripped back. The only functions that remain is the apology function and the login_required tag
-function.
+## Requirements
 #### requirements.txt
 Contains a list of all the external modules I have used.
